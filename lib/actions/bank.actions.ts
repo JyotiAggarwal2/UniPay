@@ -89,16 +89,25 @@ export const getAccount = async ({ appwriteItemId }: getAccountProps) => {
         category: transferData.category,
         type: transferData.senderBankId === bank.$id ? "debit" : "credit",
       })
-    );
+    ) || [];
 
     // get institution info from plaid
     const institution = await getInstitution({
       institutionId: accountsResponse.data.item.institution_id!,
     });
 
-    const transactions = await getTransactions({
+    const transactions = (await getTransactions({
       accessToken: bank?.accessToken,
-    });
+    })) || [];
+
+    // const plaidTransactions = (await getTransactions({
+    //   accessToken: bank.accessToken,
+    // })) || []; // Default to an empty array if no transactions
+
+    // Merge and sort all transactions
+    // const allTransactions = [...plaidTransactions, ...transferTransactions].sort(
+    //   (a, b) => new Date(b.date).getTime() - new Date(a.date).getTime()
+    // );
 
     const account = {
       id: accountData.account_id,
@@ -146,15 +155,19 @@ export const getInstitution = async ({
 };
 
 // Get transactions
-export const getTransactions = async ({
-  accessToken,
-}: getTransactionsProps) => {
+export const getTransactions = async ({ accessToken, }: getTransactionsProps) => {
   let hasMore = true;
   let transactions: any = [];
 
   try {
-    // Iterate through each page of new transaction updates for item
+
     while (hasMore) {
+      // console.log(accessToken)
+      const itemResponse = await plaidClient.itemGet({
+        access_token: accessToken,
+      });
+      // console.log(itemResponse.data);
+      // console.log(itemResponse.data.item.billed_products);
       const response = await plaidClient.transactionsSync({
         access_token: accessToken,
       });
@@ -176,9 +189,9 @@ export const getTransactions = async ({
 
       hasMore = data.has_more;
     }
-
     return parseStringify(transactions);
+
   } catch (error) {
-    console.error("An error occurred while getting the accounts:", error);
+    console.error("An error occurred while getting the accounts:", error);    
   }
 };

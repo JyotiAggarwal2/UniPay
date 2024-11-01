@@ -1,20 +1,22 @@
+'use client'
 import Image from 'next/image'
 import Link from 'next/link'
 import React, { use } from 'react'
 import BankCard from './BankCard'
 import { countTransactionCategories } from '@/lib/utils'
 import Category from './Category'
+import PlaidLink from './PlaidLink'
 
 const RightSidebar = ({user, transactions, banks}: RightSidebarProps) => {
     const categories: CategoryCount[] = countTransactionCategories(transactions)
-    console.log(categories);
+    // console.log(categories);
 
   return (
-    <aside className='right-sidebar'>
+    <aside className='right-sidebar max-w-[315px]'>
         <section className='flex flex-col pb-8'>
             <div className='profile-banner' />
             <div className='profile'>
-                <div className='profile-img'>
+                <div className='profile-img cursor-pointer'>
                     <span className='text-5xl font-bold text-blue-500'>{user.firstName[0]}</span>
                 </div>
 
@@ -26,11 +28,12 @@ const RightSidebar = ({user, transactions, banks}: RightSidebarProps) => {
         </section>
 
         <section className='banks'>
-            <div className='flex w-full justify-between'>
-                <h2 className='header-2'>My banks</h2>
+            <div className='flex w-full justify-between items-center'>
+                <Link href="/my-banks">
+                    <h2 className='header-2 cursor-pointer'>My banks</h2>
+                </Link>
                 <Link href="/" className='flex gap-2'>
-                    <Image src="/icons/plus.svg" width={20} height={20} alt='plus' />
-                    <h2 className='text-14 font-semibold text-gray-600'>Add Bank</h2>
+                    <PlaidLink user={user} variant="ghost" />
                 </Link>
             </div>
 

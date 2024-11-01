@@ -36,7 +36,7 @@ import {
             <TableHead className="px-2">Status</TableHead>
             <TableHead className="px-2">Date</TableHead>
             <TableHead className="px-2 max-md:hidden">Channel</TableHead>
-            <TableHead className="px-2 max-md:hidden">Category</TableHead>
+            <TableHead className="px-2 max-2xl:hidden">Category</TableHead>
           </TableRow>
         </TableHeader>
         <TableBody>
@@ -49,7 +49,7 @@ import {
   
             return (
               <TableRow key={t.id} className={`${isDebit || amount[0] === '-' ? 'bg-[#FFFBFA]' : 'bg-[#F6FEF9]'} !over:bg-none !border-b-DEFAULT`}>
-                <TableCell className="max-w-[250px] pl-2 pr-10">
+                <TableCell className="max-w-[250px] pl-2 pr-7">
                   <div className="flex items-center gap-3">
                     <h1 className="text-14 truncate font-semibold text-[#344054]">
                       {removeSpecialCharacters(t.name)}
@@ -57,7 +57,7 @@ import {
                   </div>
                 </TableCell>
   
-                <TableCell className={`pl-2 pr-10 font-semibold ${
+                <TableCell className={`pl-2 pr-7 font-semibold ${
                   isDebit || amount[0] === '-' ?
                     'text-[#f04438]'
                     : 'text-[#039855]'
@@ -65,19 +65,19 @@ import {
                   {isDebit ? `-${amount}` : isCredit ? amount : amount}
                 </TableCell>
   
-                <TableCell className="pl-2 pr-10">
+                <TableCell className="pl-2 pr-7">
                   <CategoryBadge category={status} /> 
                 </TableCell>
   
-                <TableCell className="min-w-32 pl-2 pr-10">
+                <TableCell className="min-w-32 pl-2 pr-7">
                   {formatDateTime(new Date(t.date)).dateTime}
                 </TableCell>
   
-                <TableCell className="pl-2 pr-10 capitalize min-w-24">
+                <TableCell className="min-w-28 pl-2 pr-7 capitalize max-md:hidden">
                  {t.paymentChannel}
                 </TableCell>
   
-                <TableCell className="pl-2 pr-10 max-md:hidden">
+                <TableCell className="pl-2 pr-7 max-2xl:hidden">
                  <CategoryBadge category={t.category} /> 
                 </TableCell>
               </TableRow>

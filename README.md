@@ -1,36 +1,159 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# UniPay | Full-Stack Fintech Banking Platform
 
-## Getting Started
+UniPay is a modern full-stack banking application that enables users to securely connect bank accounts, monitor balances, track transactions, and manage financial activities through a unified dashboard.
 
-First, run the development server:
+Built with Next.js, TypeScript, Appwrite, Plaid, and Dwolla, UniPay delivers a seamless digital banking experience with secure authentication, bank account aggregation, transaction insights, and money transfer capabilities.
+
+---
+
+## Features
+
+### Secure Authentication
+
+* User registration and login
+* Session-based authentication using Appwrite
+* Secure account management
+
+### Bank Account Integration
+
+* Connect multiple bank accounts using Plaid
+* Retrieve account details and balances
+* View linked institutions in a single dashboard
+
+### Transaction Management
+
+* View detailed transaction history
+* Paginated transaction records
+* Real-time account activity tracking
+
+### Funds Transfer
+
+* Transfer money between connected accounts
+* Dwolla integration for payment processing
+* Secure transaction workflows
+
+### Financial Dashboard
+
+* Aggregate account balances
+* Account overview and insights
+* Responsive and user-friendly interface
+
+---
+
+## Tech Stack
+
+### Frontend
+
+* Next.js
+* React
+* TypeScript
+* Tailwind CSS
+
+### Backend & Services
+
+* Appwrite
+* Plaid API
+* Dwolla API
+
+### Development Tools
+
+* ESLint
+* PostCSS
+* Git & GitHub
+
+---
+
+## Architecture
+
+```text
+User
+ │
+ ▼
+Next.js Frontend
+ │
+ ├── Appwrite Authentication
+ │
+ ├── Plaid Integration
+ │      └── Bank Accounts & Transactions
+ │
+ └── Dwolla Integration
+        └── Money Transfers
+```
+
+---
+
+## Installation
+
+### Clone Repository
+
+```bash
+git clone https://github.com/JyotiAggarwal2/UniPay.git
+cd UniPay
+```
+
+### Install Dependencies
+
+```bash
+npm install
+```
+
+### Configure Environment Variables
+
+Create a `.env.local` file in the root directory.
+
+### Run Development Server
 
 ```bash
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+---
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## Key Functionalities
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+* Multi-bank account aggregation
+* Secure user authentication
+* Transaction analytics
+* Account balance monitoring
+* Fund transfer workflows
+* Responsive UI across devices
 
-## Learn More
+---
 
-To learn more about Next.js, take a look at the following resources:
+## Future Enhancements
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+* AI-powered spending insights
+* Budget planning and tracking
+* Investment portfolio integration
+* Credit score monitoring
+* Financial goal management
+* Fraud detection alerts
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+---
 
-## Deploy on Vercel
+## Learning Outcomes
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+This project helped strengthen expertise in:
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+* Full-stack application development
+* API integrations
+* Authentication and authorization
+* Financial technology systems
+* State management and data flow
+* TypeScript and scalable architecture
+
+---
+
+## Author
+
+**Jyoti Aggarwal**
+
+GitHub: https://github.com/JyotiAggarwal2
+
+LinkedIn: [Jyoti Aggarwal](https://www.linkedin.com/in/jyotiaggarwalofficial/)
+
+---
+
+## License
+
+This project is licensed under the MIT License.

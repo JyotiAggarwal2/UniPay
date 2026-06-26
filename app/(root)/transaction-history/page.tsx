@@ -57,18 +57,22 @@ import React from 'react'
 //     </div>
 //   )
 // }
-const TransactionHistory = async ({ searchParams: { id, page }}: SearchParamProps) => {
+const TransactionHistory = async ({ searchParams }: SearchParamProps) => {
+  const params = await searchParams;
+  const id = params.id;
+  const page = params.page;
   const currentPage = Number(page as string) || 1;
   const loggedIn = await getLoggedInUser();
-  const accounts = await getAccounts({ userId: loggedIn.$id });
-  if (!accounts) return;
+  if (!loggedIn) return null;
+  const accounts = await getAccounts({ userId: loggedIn.$id, });
+  if (!accounts) return null;
 
   const accountsData = accounts?.data;
   const appwriteItemId = (id as string) || accountsData[0]?.appwriteItemId;
   // console.log(accountsData);
   // console.log(appwriteItemId);
 
-  const accountIndex = (accountsData.findIndex(account => account.appwriteItemId === appwriteItemId));
+  const accountIndex = (accountsData.findIndex((account: any) => account.appwriteItemId === appwriteItemId));
   // console.log(accountIndex);
 
   if (accountIndex === -1) {

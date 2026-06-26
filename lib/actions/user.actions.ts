@@ -8,7 +8,6 @@ import { CountryCode, ProcessorTokenCreateRequest, ProcessorTokenCreateRequestPr
 import { plaidClient } from "@/lib/plaid";
 import { revalidatePath } from "next/cache";
 import { addFundingSource, createDwollaCustomer } from "./dwolla.actions";
-import { useId } from "react";
 
 const {
   APPWRITE_DATABASE_ID: DATABASE_ID,

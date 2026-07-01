@@ -1,8 +1,28 @@
-# UniPay | Full-Stack Fintech Banking Platform
+# UniPay | Full-Stack Fintech Banking Platform [![Live Demo](https://img.shields.io/badge/Live%20Demo-Visit-blue)](https://unipay-finance.vercel.app)
 
 UniPay is a modern full-stack banking application that enables users to securely connect bank accounts, monitor balances, track transactions, and manage financial activities through a unified dashboard.
 
 Built with Next.js, TypeScript, Appwrite, Plaid, and Dwolla, UniPay delivers a seamless digital banking experience with secure authentication, bank account aggregation, transaction insights, and money transfer capabilities.
+
+---
+
+## Table of Contents
+- [Live Demo](#live-demo)
+- [Features](#features)
+- [Tech Stack](#tech-stack)
+- [Architecture](#architecture)
+- [Installation](#installation)
+- [Key Functionalities](#key-functionalities)
+- [Future Enhancements](#future-enhancements)
+- [Learning Outcomes](#learning-outcomes)
+- [Author](#author)
+- [License](#license)
+
+---
+
+## Live Demo
+
+Check out the live website [here](https://unipay-finance.vercel.app).
 
 ---
 
@@ -156,4 +176,4 @@ LinkedIn: [Jyoti Aggarwal](https://www.linkedin.com/in/jyotiaggarwalofficial/)
 
 ## License
 
-This project is licensed under the MIT License.
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
